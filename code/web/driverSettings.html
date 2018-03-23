@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bondira</title>
+
+    <!-- Material Design Theming -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Firebase -->
+    <!-- ***********************************************************************************************************************
+         * TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
+         *********************************************************************************************************************** -->
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "SECRET_VALUE_1",
+    authDomain: "SECRET_VALUE_2",
+    databaseURL: "SECRET_VALUE_3",
+    projectId: "SECRET_VALUE_4",
+    storageBucket: "SECRET_VALUE_5",
+    messagingSenderId: "SECRET_VALUE_6"
+  };
+  firebase.initializeApp(config);
+</script>
+
+    <script type="text/javascript">
+
+    
+    function isBizNatureNotSetYet(bizNature){
+
+        if (bizNature) {
+          return false;
+        }
+        return true;
+    }
+
+
+    function setBizNature(_bizNature){
+
+      var user = firebase.auth().currentUser;
+
+      _email = user.email;
+      _userId = user.uid;
+      var someDate = new Date().toString() ;
+          
+      firebase.database().ref('users/' + _userId).set({
+        email: _email,
+        bizNature: _bizNature,
+        ts: someDate
+      });
+
+    }
+
+
+    function validateBizNature(){// check if the biz nature is set, if not, set it to "_DRIVER_"
+
+      var userId ;
+      var bizNature;
+
+      userId = firebase.auth().currentUser.uid;  
+
+      firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+        bizNature = snapshot.val().bizNature;
+      });
+      
+      if (isBizNatureNotSetYet(bizNature)){
+
+          setBizNature("_DRIVER_");
+
+
+      } 
+
+    }
+
+
+
+    function loadData(){
+
+
+
+    }
+
+    
+
+
+    
+
+    /**
+     * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+     *    out, and that is where we update the UI.
+     */
+    function initApp() {
+      
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // User is signed in.
+                
+                validateBizNature();
+                loadData();
+
+
+            } else {
+              // No user is signed in.
+                alert('Please login before you go to this page');
+
+            }
+        }); 
+            
+    }
+
+    window.onload = function() {
+      initApp();
+    };
+  </script>
+</head>
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+
+    <!-- Header section containing title -->
+    <header class="mdl-layout__header mdl-color-text--white mdl-color--grey-700 ">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid " >
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop" >
+                <a href="/"><h3>Bondira</h3></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content mdl-color--grey-100 " >
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid ">
+
+            <!-- Container for the demo -->
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop ">
+                <div class="mdl-card__title mdl-color--grey-600 mdl-color-text--white">
+                    <h2 class="mdl-card__title-text">7ammel be sor3a / materga3sh fady </h2>
+                </div>
+
+                <div class="mdl-card__supporting-text mdl-color-text--white-600 mdl-color--grey">
+
+                Details Of Order You Accepted:
+
+                    <!-- Container where we'll display the user details -->
+                    <div class="quickstart-user-details-container " >
+
+                    <table border="3 px" id="Accepted_Order_Table" class="accepted_order_tableclass" dir="rtl" >
+                        <tr>
+                            <th>Customer Name</th><td colspan="3">Abbas El Daw </td>
+                        </tr>
+                        <tr>
+                            <th>Customer Phone#1: </th><td colspan="3">+20 100  123 456 789 </td>
+                        </tr>
+                        <tr>
+                            <th>Customer Phone#2: </th><td colspan="3">+20 100  123 456 789 </td>
+                        </tr>
+                        <tr>
+                            <th>Total Cost : </th><td colspan="3"> <b> 1500 </b> EGP </td>
+                        </tr>
+
+                        <tr>
+                            <th>Trip Starts From[Source]: </th><td colspan="3">address  details here abc d e f g h i h g j k l m n o p q r s t u v  </td>
+                        </tr>
+                        <tr>
+                            <th>Trip Endss At[Destination]: </th><td colspan="3">address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789 </td>
+                        </tr>
+                        <tr>
+                            <th>Details: </th><td colspan="3">address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789 </td>
+                        </tr>
+                        <tr>
+                            <th>Must Have: </th><td colspan="3">address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789 </td>
+                        </tr>
+                        <tr>
+                            <th>Prefer To Have: </th><td colspan="3">address  details here abc d e f g h i h g j k l m n o p q r s t u v  +20 100  123 456 789 </td>
+                        </tr>
+                    </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

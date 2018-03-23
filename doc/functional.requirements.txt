@@ -1,0 +1,76 @@
+# Bondira
+platform for freights in egypt
+
+This project Bondira, a plateform where two type of business partners can  meet and make a deal. The first is truckers.
+The second is riders who need truckers service.
+This is the code of the part completed, the 30% (or less), you will finish the 70% (or more!) left.
+
+
+This project targets truck drivers and riders who are less experienced with computers and smart phones but can benefit from computers the most.
+These customers usually have different styles of old phones, different sizes, weak internet connection. So, please consider this while you are coding.
+
+Basically,
+Don't increase the side of (HTML,CSS,JS) you download on client side, on contrary try to reduce them, try using something like angularJS if it is easy.
+No logic on client side.
+
+Note:
+No machine learning or complex algorithms are involved in this step. It's just simple forum , only CRUD operations.
+Logo already created. Colors, technology, fonts and logo already picked and included in the code.
+The 30% of the code are functional.
+it is deployed on :
+    https://freight-2626e.firebaseapp.com
+
+
+
+Here are some technical details about the project:
+1- It is Google Firebase, Google Firebase storage, Google functions , javascript, ... And we want it to stay as is.
+We will NOT change this dev background.
+
+2- Some logic is included in the javascript files which is downloaded on client side, we want all
+the logic to be on Google functions, JavaScript or python (your choice of those two).
+
+3- The color is dark to help saving memory of customers, since bright screen is more battery consuming.
+"if someone said this website is consuming battery, all drivers will stop using it"
+
+
+
+
+
+
+Functional specs:
+1- Login, signup page to include phone number.(now it has only email). Follow the same standard registration steps like email.
+
+2- Setting page for each (tracker/rider) to set their business details and save their avg score.
+
+3- On the trucker page, once trucker logs in, he should see last order he accepted ( with all it's details) in one tab.
+    The other tab is the market (which shows all orders available in the website, so he can accept another order once he is done with his current order).
+
+4- On the rider page, once the rider logs in,he should see the following tabs:
+
+    A- History orders. This shows last 20 orders that was completed, cancelled,.. with details.
+    B- Live orders. This shows the orders that are not delivered yet, either not accepted by any trucker, or not loaded,
+        not moved, not arrived yet. If the order was not accepted, it can be cancelled.
+    C- Create a new order. This is a simple form with fields to submit. Then be seen on market.
+
+5- every Truck driver can rate the rider after a delivery, and every rider can rate the driver after the delivery. rating has to be easy one click on 5 star thing.
+"Uber style".
+
+6- The average of the rates is calculated after each rating. "on google function".
+
+7- comment section under rating is always there.
+
+8- comment\suggestion message to bondira team has to be available on the main page,
+these comments go to the store and will be viewable by us manually "do not create UI for it".
+
+
+9- the whole website is right to left. you can keep everything in english, translation will be done by us.
+
+
+
+
+
+
+
+
+
+
