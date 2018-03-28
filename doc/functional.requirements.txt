@@ -78,8 +78,8 @@ I know [Crowdspring.com / 99designs.com ] are doing the same on logo design. [Ai
 Q3: How much are you gonna pay for this project? 
 Budget is negotiable, but I will go mainly with the team that has some experience in firebase then the lower bid if I found any. 
 
-Q4:
-
+Q4:What is the main qualification or skills needed for this project?
+Firebase , then google functions, then javascript, then html, then css.
 
 Q5:
 
