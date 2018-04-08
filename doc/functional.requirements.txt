@@ -63,7 +63,10 @@ Functional specs:
 these comments go to the store and will be viewable by us manually "do not create UI for it".
 
 
-9- the whole website is right to left. you can keep everything in english, translation will be done by us.
+9- Since the website is going to be published in Arabic, The whole website is right to left, whenever we (the owner) missed you (the deverloper) have to fix it. All tabs ,tables, text directions, ...everything is right to left. 
+You can keep everything in english, translation will be done by us.
+
+
 
 ============================================================================================================
 
