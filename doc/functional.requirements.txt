@@ -54,6 +54,7 @@ Functional specs:
 
 5- every Truck driver can rate the rider after a delivery, and every rider can rate the driver after the delivery. rating has to be easy one click on 5 star thing.
 "Uber style".
+    The other tab is the market (which shows all orders available in the website, so he can accept another order once he is done with his current order).
 
 6- The average of the rates is calculated after each rating. "on google function".
 
